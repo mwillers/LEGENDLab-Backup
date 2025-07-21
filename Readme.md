@@ -1,5 +1,9 @@
 # Backup LEGENDLab PC
 
+<img src="img/LEGENDLabBackup.png" alt="Logo" width="240"/>
+
+Simple script to backup the software installation of the DAQ computer in the LEGENDLab at TUM using `borgbackup`.
+
 ## Setup borgbackup
 
 (as root)
@@ -24,7 +28,16 @@ Host artemis
    IdentityFile ~/.ssh/legendlab
 ```
 
-add a cron job to run the scripts once every two hours:
+## Backup script
+
+Prepare script env.
+
+```bash
+chmod +x *.sh
+mkdir log
+```
+
+Add a cron job to run the scripts once every two hours:
 
 ```bash
 # m h  dom mon dow   command
@@ -37,7 +50,7 @@ add a cron job to run the scripts once every two hours:
 
 ## Use borgbackup
 
-initate borgbackup
+Initate borgbackup
 
 ```bash
 borg init --encryption=none artemis:/mnt/artemis02/users/legendlab/backup/FCDAQ-2025
